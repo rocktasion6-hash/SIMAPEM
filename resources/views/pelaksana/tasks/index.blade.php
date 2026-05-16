@@ -23,7 +23,7 @@
                             
                             <div class="p-4">
                                 <div class="flex justify-between items-start mb-2">
-                                    <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                                    <span class="text-xs font-bold text-sky-300 bg-white/10 px-2 py-1 rounded">
                                         {{ $task->tracking_code }}
                                     </span>
                                     <span class="text-xs px-2 py-1 rounded {{ $task->status->value == 'in_progress' ? 'bg-yellow-100 text-yellow-800' : 'bg-purple-100 text-purple-800' }}">
@@ -31,10 +31,10 @@
                                     </span>
                                 </div>
                                 
-                                <h3 class="font-bold text-gray-800 mb-1">{{ $task->title }}</h3>
-                                <p class="text-sm text-gray-600 line-clamp-2 mb-4">{{ $task->description }}</p>
+                                <h3 class="font-bold text-white mb-1">{{ $task->title }}</h3>
+                                <p class="text-sm text-slate-200 line-clamp-2 mb-4">{{ $task->description }}</p>
                                 
-                                <div class="flex items-center gap-2 mb-4 text-xs text-gray-500">
+                                <div class="flex items-center gap-2 mb-4 text-xs text-slate-300">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                                     <a href="https://www.google.com/maps?q={{ $task->latitude }},{{ $task->longitude }}" target="_blank" class="hover:underline">Buka Lokasi (Maps)</a>
                                 </div>

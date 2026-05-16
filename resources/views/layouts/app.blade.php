@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('{{ asset('images/paluu.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

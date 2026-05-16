@@ -99,6 +99,9 @@
                         <div class="bg-indigo-800 p-4 rounded-lg">
                             <p class="text-xs italic text-indigo-200">"Transparansi dan kecepatan adalah kunci pelayanan publik yang prima."</p>
                         </div>
+                        <a href="{{ route('kadis.complaints.index') }}" class="block mt-4 text-center bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 rounded-lg transition">
+                            Lihat Semua Laporan
+                        </a>
                     </div>
                 </div>
             </div>

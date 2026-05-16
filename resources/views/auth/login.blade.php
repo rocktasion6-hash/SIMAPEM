@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mb-8 text-center">
-        <!-- Judul sebagai pengganti logo -->
+        <img src="{{ asset('images/logo_palu.jpeg') }}" alt="Logo" class="w-16 h-16 object-contain mx-auto mb-3">
         <h1 class="text-4xl font-black text-indigo-600 tracking-tighter">
             SIMAPEM
         </h1>

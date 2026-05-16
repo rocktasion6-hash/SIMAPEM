@@ -66,6 +66,8 @@ Route::middleware(['auth'])->group(function () {
      */
     Route::prefix('kadis')->name('kadis.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/complaints', [DashboardController::class, 'complaints'])->name('complaints.index');
+        Route::get('/complaints/{complaint}', [DashboardController::class, 'showComplaint'])->name('complaints.show');
     });
 
     Route::get('/logout', function () {

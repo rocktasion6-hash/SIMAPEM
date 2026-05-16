@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="mt-6 flex justify-end space-x-3">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition">Batal</button>
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-rose-100 text-rose-700 rounded-md hover:bg-rose-200 transition">Batal</button>
                     <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">Simpan Perubahan</button>
                 </div>
             </form>
