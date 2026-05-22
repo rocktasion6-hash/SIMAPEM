@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         // Redirect berdasarkan role
         if ($user->role->value === 'warga') {
-            return redirect()->route('warga.complaints.index');
+            return redirect()->route('warga.dashboard');
         } elseif ($user->role->value === 'front_office') {   
             return redirect()->route('fo.verifikasi.index');
         } elseif ($user->role->value === 'kasi') {

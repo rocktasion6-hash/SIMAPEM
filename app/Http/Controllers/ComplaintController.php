@@ -72,12 +72,28 @@ class ComplaintController extends Controller
      */
     public function show(Complaint $complaint)
     {
-        // Keamanan: Pastikan warga hanya bisa melihat laporannya sendiri
-        if ($complaint->user_id !== Auth::id()) {
-            abort(403, 'Anda tidak memiliki akses ke laporan ini.');
-        }
+    // Keamanan: Pastikan warga hanya bisa melihat laporannya sendiri
+    if ($complaint->user_id !== Auth::id()) {
+        abort(403, 'Anda tidak memiliki akses ke laporan ini.');
+    }
 
-        return view('warga.complaints.show', compact('complaint'));
+    // Ambil relasi kategori dan riwayat pengerjaan
+    $complaint->load([
+        'category',
+        'histories' => function ($query) {
+            $query->latest();
+        },
+        'histories.user',
+    ]);
+
+    // Ambil riwayat terbaru saat laporan sudah selesai / resolved
+    $completionHistory = $complaint->histories()
+        ->where('status', ComplaintStatus::RESOLVED->value)
+        ->whereNotNull('action_photo_path')
+        ->latest()
+        ->first();
+
+    return view('warga.complaints.show', compact('complaint', 'completionHistory'));
     }
 
     /**

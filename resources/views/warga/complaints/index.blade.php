@@ -1,14 +1,23 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Laporan Saya') }}
-            </h2>
-            <a href="{{ route('warga.complaints.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition shadow-lg shadow-indigo-200">
+<x-slot name="header">
+    <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Laporan Saya') }}
+        </h2>
+
+        <div class="flex items-center gap-3">
+            <a href="{{ route('warga.dashboard') }}"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold transition">
+                ← Kembali ke Dashboard
+            </a>
+
+            <a href="{{ route('warga.complaints.create') }}"
+               class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition shadow-lg shadow-indigo-200">
                 + Buat Laporan
             </a>
         </div>
-    </x-slot>
+    </div>
+</x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -39,8 +39,29 @@ class UserSeeder extends Seeder
 
         // 4. Akun Pelaksana (Petugas Lapangan)
         User::create([
-            'name' => 'Adi Pelaksana',
+            'name' => 'Adi',
             'email' => 'pelaksana@gmail.com',
+            'password' => Hash::make('password'),
+            'role' => 'pelaksana',
+        ]);
+
+        User::create([
+            'name' => 'Idham',
+            'email' => 'pelaksana1@gmail.com',
+            'password' => Hash::make('password'),
+            'role' => 'pelaksana',
+        ]);
+
+        User::create([
+            'name' => 'Zahra',
+            'email' => 'pelaksana2@gmail.com',
+            'password' => Hash::make('password'),
+            'role' => 'pelaksana',
+        ]);
+
+        User::create([
+            'name' => 'Atalya',
+            'email' => 'pelaksana3@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'pelaksana',
         ]);

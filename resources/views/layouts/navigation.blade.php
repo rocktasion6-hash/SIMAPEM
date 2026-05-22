@@ -2,7 +2,7 @@
     // Menentukan route dashboard secara dinamis berdasarkan role user
     $role = Auth::user()->role->value;
     $dashboardRoute = match($role) {
-        'warga' => route('warga.complaints.index'),
+        'warga' => route('warga.dashboard'),
         'fo' => route('fo.verifikasi.index'),
         'kasi' => route('kasi.assignment.index'),
         'pelaksana' => route('pelaksana.tasks.index'),
@@ -12,7 +12,7 @@
 
     // Menentukan nama tampilan di menu
     $dashboardLabel = match($role) {
-        'warga' => __('Laporan Saya'),
+        'warga' => __('Dashboard Warga'),
         'fo' => __('Verifikasi Laporan'),
         'kasi' => __('Penugasan'),
         'pelaksana' => __('Tugas Saya'),
