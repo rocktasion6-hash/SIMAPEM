@@ -41,16 +41,6 @@ class DashboardController extends Controller
         ->groupBy('categories.name')
         ->get();
 
-    // 4. Data Grafik (Jika Anda menggunakan Chart.js nanti)
-    $chartData = Complaint::select(
-            DB::raw('COUNT(id) as count'), 
-            DB::raw("DATE_FORMAT(created_at, '%M') as month"),
-            DB::raw("DATE_FORMAT(created_at, '%Y%m') as month_sort")
-        )
-        ->where('created_at', '>=', now()->subMonths(6))
-        ->groupBy('month', 'month_sort')
-        ->orderBy('month_sort', 'asc')
-        ->get();
 
     $categoryStats = DB::table('complaints')
     ->join('categories', 'complaints.category_id', '=', 'categories.id')
@@ -58,7 +48,7 @@ class DashboardController extends Controller
     ->groupBy('categories.name')
     ->get();
 
-    return view('kadis.dashboard', compact('stats', 'recentComplaints', 'categoryDistribution', 'chartData', 'categoryStats'));
+    return view('kadis.dashboard', compact('stats', 'recentComplaints', 'categoryDistribution', 'categoryStats'));
     }
 
     public function complaints(): View

@@ -43,10 +43,6 @@ Route::middleware(['auth'])->group(function () {
     ->middleware('auth')
     ->name('warga.ai.chat');
 
-    Route::post('/warga/ai-improve-description', [AiComplaintImproveController::class, 'improve'])
-    ->middleware('auth')
-    ->name('warga.ai.improve.description');
-
     /**
      * 2. ROLE: FRONT OFFICE (Verifikator & Validasi)
      */

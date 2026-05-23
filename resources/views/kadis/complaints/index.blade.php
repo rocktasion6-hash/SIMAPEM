@@ -4,7 +4,8 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Semua Laporan Masuk') }}
             </h2>
-            <a href="{{ route('kadis.dashboard') }}" class="text-sm text-sky-300 hover:underline">
+            <a href="{{ route('kadis.dashboard') }}"
+                class="text-sm font-bold text-blue-600 hover:text-blue-800 transition">
                 &larr; Kembali ke Dashboard
             </a>
         </div>

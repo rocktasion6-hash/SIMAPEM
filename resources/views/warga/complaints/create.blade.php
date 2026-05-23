@@ -73,16 +73,10 @@
                             </label>
 
                             <textarea name="description"
-                                        id="description"
                                       rows="5"
                                       class="block w-full rounded-2xl border border-white/20 bg-white/10 text-white placeholder-white/45 shadow-sm focus:border-blue-400 focus:ring-blue-400"
                                       placeholder="Jelaskan detail masalah..."
                                       required>{{ old('description') }}</textarea>
-                            <button type="button"
-                                id="btn-improve-description"
-                                class="mt-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg transition">
-                                Rapikan Deskripsi dengan AI
-                            </button>
 
                             @error('description')
                                 <p class="mt-2 text-xs text-rose-300 font-semibold">
@@ -229,49 +223,5 @@
                 alert("Browser Anda tidak mendukung deteksi lokasi.");
             }
         }
-
-    const btnImprove = document.getElementById('btn-improve-description');
-    const descriptionInput = document.getElementById('description');
-
-    btnImprove.addEventListener('click', async function () {
-        const description = descriptionInput.value.trim();
-
-        if (description.length < 5) {
-            alert('Isi deskripsi laporan terlebih dahulu minimal 5 karakter.');
-            return;
-        }
-
-        btnImprove.disabled = true;
-        btnImprove.innerText = 'AI sedang merapikan...';
-
-        try {
-            const response = await fetch("{{ route('warga.ai.improve.description') }}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: JSON.stringify({
-                    description: description
-                })
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                alert(data.message || 'AI gagal merapikan deskripsi.');
-                return;
-            }
-
-            descriptionInput.value = data.description;
-
-        } catch (error) {
-            alert('Tidak bisa terhubung ke AI. Pastikan Ollama sedang berjalan.');
-            console.error(error);
-        } finally {
-            btnImprove.disabled = false;
-            btnImprove.innerText = 'Rapikan Deskripsi dengan AI';
-        }
-        });
     </script>
 </x-app-layout>
